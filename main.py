@@ -1,45 +1,51 @@
 import pandas as pd
 
-STEPS = [1, 2, 5, 10, 25, 50, 100]
+STEPS = [0, 1, 2, 4, 9, 24, 49, 99]
+counts = [0, 0, 0, 0, 0, 0, 0, 0]
 
-counts = [0, 0, 0, 0, 0, 0, 0]
 
+def calculate_row_range(row_, level):
+    step = STEPS[level]
+    counts[level] += 1
+    if counts[level] > step:
+        counts[level] = 0
 
-def calculate_row_range(step_range, count, row):
-    if count == 0:
-        return f"{row}-{row + STEPS[0]}"
-    else:
-        return f"{row - STEPS[0]}-{row}"
+    return f"{row_ - counts[level]}-{row_ - counts[level] + step}"
 
 
 if __name__ == "__main__":
-    adult_df = pd.read_csv("adult-dataset.csv")
-    columns = adult_df.columns.tolist()
+    # adult_df = pd.read_csv("adult-dataset.csv")
+    # columns = adult_df.columns.tolist()
+    # print(adult_df['age'].unique())
+
+    rows = range(1, 100)
+    age_df = pd.DataFrame(columns=[f"level-{i}" for i, step in enumerate(STEPS)])
+
+    for row in rows:
+        level_1 = calculate_row_range(row, 1)
+        level_2 = calculate_row_range(row, 2)
+        level_3 = calculate_row_range(row, 3)
+        level_4 = calculate_row_range(row, 4)
+        level_5 = calculate_row_range(row, 5)
+        level_6 = calculate_row_range(row, 6)
+
+        df = pd.DataFrame(
+            [
+                {
+                    "level-0": str(row),
+                    "level-1": level_1,
+                    "level-2": level_2,
+                    "level-3": level_3,
+                    "level-4": level_4,
+                    "level-5": level_5,
+                    "level-6": level_6,
+                    "level-7": "any",
+                }
+            ]
+        )
+        age_df = pd.concat([age_df, df], ignore_index=True)
+
     breakpoint()
-    #
-    # rows = range(1, 100)
-    # age_df = pd.DataFrame(columns=[f"level-{i}" for i, step in enumerate(STEPS, start=1)])
-    # count = 0
-    #
-    # for row in rows:
-    #     level_2 = calculate_row_range(STEPS[0], count, row)
-    #
-    #     df = pd.DataFrame(
-    #         [
-    #             {
-    #                 "level-1": str(row),
-    #                 "level-2": level_2,
-    #                 "level-3": "",
-    #                 "level-4": "",
-    #                 "level-5": "",
-    #                 "level-6": "",
-    #                 "level-7": "any",
-    #             }
-    #         ]
-    #     )
-    #     age_df = pd.concat([age_df, df], ignore_index=True)
-    #
-    # breakpoint()
-    # age_df.to_csv("age_taxonimy_tree.csv", index=False)
-    #
-    # breakpoint()
+    age_df.to_csv("age_taxonimy_tree.csv", index=False)
+
+    breakpoint()
