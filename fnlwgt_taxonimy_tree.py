@@ -36,11 +36,11 @@ if __name__ == "__main__":
         )
         fnlwgt_df = pd.concat([fnlwgt_df, df], ignore_index=True)
 
-    filename = "output-data/scenario-b-coarse-tax-fnlwgt.csv"
+    filename = "output-data/scenario-b/coarse/scenario-b-coarse-tax-fnlwgt.csv"
     print(f"Filename: {filename}")
     print("generate tree? ('y' or 'n')")
 
-    if 'y' in input():
+    if "y" in input():
         fnlwgt_df.to_csv(filename, index=False)
 
     breakpoint()

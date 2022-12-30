@@ -39,11 +39,11 @@ if __name__ == "__main__":
         )
         cap_df = pd.concat([cap_df, df], ignore_index=True)
 
-    filename = "output-data/scenario-b-coarse-tax-capital-loss.csv"
+    filename = "output-data/scenario-b/coarse/scenario-b-coarse-tax-capital-loss.csv"
     print(f"Filename: {filename}")
     print("generate tree? ('y' or 'n')")
 
-    if 'y' in input():
+    if "y" in input():
         cap_df.to_csv(filename, index=False)
 
     breakpoint()

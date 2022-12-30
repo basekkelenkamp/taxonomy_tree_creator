@@ -39,7 +39,7 @@ if __name__ == "__main__":
     print(f"Filename: {filename}")
     print("generate tree? ('y' or 'n')")
 
-    if 'y' in input():
+    if "y" in input():
         age_df.to_csv(filename, index=False)
 
     breakpoint()

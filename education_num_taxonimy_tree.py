@@ -16,7 +16,7 @@ def calculate_row_range(row_, level):
 if __name__ == "__main__":
     adult_df = pd.read_csv("input-data/adult-dataset.csv")
     edu = adult_df["education-num"].unique()
-    rows = range(min(edu), max(edu)+1)
+    rows = range(min(edu), max(edu) + 1)
 
     edu_df = pd.DataFrame(columns=[f"level-{i}" for i, step in enumerate(STEPS)])
 
@@ -36,11 +36,11 @@ if __name__ == "__main__":
         )
         edu_df = pd.concat([edu_df, df], ignore_index=True)
 
-    filename = "output-data/scenario-b-coarse-education-num.csv"
+    filename = "output-data/scenario-b/coarse/scenario-b-coarse-education-num.csv"
     print(f"Filename: {filename}")
     print("generate tree? ('y' or 'n')")
 
-    if 'y' in input():
+    if "y" in input():
         edu_df.to_csv(filename, index=False)
 
     breakpoint()
