@@ -1,20 +1,20 @@
 import pandas as pd
 
-STEPS = [0, 1, 2, 4, 9, 24, 49, 99]
+STEPS = [0, 1, 5, 10, 20, 40, 80]
 counts = [0, 0, 0, 0, 0, 0, 0, 0]
 
 
 def calculate_row_range(row_, level):
     step = STEPS[level]
     counts[level] += 1
-    if counts[level] > step:
+    if counts[level] >= step:
         counts[level] = 0
 
     return f"{row_ - counts[level]}-{row_ - counts[level] + step}"
 
 
 if __name__ == "__main__":
-    # adult_df = pd.read_csv("adult-dataset.csv")
+    # adult_df = pd.read_csv("input/adult-dataset.csv")
     # columns = adult_df.columns.tolist()
     # print(adult_df['age'].unique())
 
@@ -45,7 +45,8 @@ if __name__ == "__main__":
         )
         age_df = pd.concat([age_df, df], ignore_index=True)
 
-    breakpoint()
-    age_df.to_csv("age_taxonimy_tree.csv", index=False)
+    print("generate tree? ('y' or 'n')")
+    if 'y' in input():
+        age_df.to_csv(f"output-data/scenario-a-detailed-tax-age.csv", index=False)
 
     breakpoint()
