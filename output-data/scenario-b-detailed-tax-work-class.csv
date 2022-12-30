@@ -1,0 +1,9 @@
+Federal-gov,Government,Government,Any
+State-gov,Government,Government,Any
+Local-gov,Government,Government,Any
+Self-emp-inc,Self-emp,Non-government,Any
+Self-emp-not-inc,Self-emp,Non-government,Any
+Without-pay,Without-pay,Unemployed,Any
+Never-worked,Never-worked,Unemployed,Any
+Private,Non-government,Non-government,Any
+?,?,?,Any

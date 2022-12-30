@@ -1,0 +1,7 @@
+In-family,In-family,Any
+Wife,Spouse,Any
+Own-child,Own-child,Any
+Husband,Spouse,Any
+Not-in-family,Not-in-family,Any
+Other-relative,Not-in-family,Any
+Unmarried,Not-in-family,Any
