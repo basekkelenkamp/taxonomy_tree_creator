@@ -1,0 +1,7 @@
+experiment,Percentage unique records,Amount of unique records
+The original dataset with respect to the QIDs of dataset Data_k10a,76.52099137,24916
+The original dataset with respect to all attributes,99.85565554,32514
+Dataset Data_k10a with respect to the QIDs of dataset Data_k10a,0.009213476245,3
+Dataset Data_k10a with respect to all attributes,3.049660637,993
+Dataset Data_k10b with respect to the QIDs of dataset Data_k10b,0.1013482387,33
+Dataset Data_k10b set with respect to all attributes,0.1013482387,33

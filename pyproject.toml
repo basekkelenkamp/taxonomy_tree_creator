@@ -9,6 +9,7 @@ packages = [{include = "taxonomy_tree_creator"}]
 [tool.poetry.dependencies]
 python = "^3.9"
 pandas = "^1.5.2"
+matplotlib = "^3.6.3"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.12.0"
